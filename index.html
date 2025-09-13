@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Germark Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Login Screen -->
+  <div id="login-screen" class="screen">
+    <img src="assets/germark-logo.jpeg" alt="Germark Logo" class="logo" />
+    <img src="assets/flag.png" alt="Germark Flag" class="flag" />
+    <h1>Welcome to Germark</h1>
+    <input type="text" id="chip-id" placeholder="Chip ID" />
+    <input type="text" id="name" placeholder="Name" />
+    <button onclick="login()">Enter Republic</button>
+  </div>
+
+  <!-- Home Screen -->
+  <div id="home-screen" class="screen" style="display: none;">
+    <header>
+      <img src="assets/germark-logo.jpeg" alt="Germark Logo" class="logo-small" />
+      <h2>Germark Digital Portal</h2>
+    </header>
+
+    <nav class="tabs">
+      <button onclick="showTab('about')">About</button>
+      <button onclick="showTab('passport')">Passport</button>
+      <button onclick="showTab('news')">News</button>
+      <button onclick="showTab('profile')">Profile</button>
+      <button onclick="showTab('citizens')">Citizens</button>
+      <button onclick="showTab('apartment')">Apartment</button>
+    </nav>
+
+    <main>
+      <!-- About Tab -->
+      <section id="about" class="tab-content">
+        <h3>About Germark</h3>
+        <p>Germark is a sovereign digital republic founded on peace, identity, and innovation. Citizens are united by code, culture, and community.</p>
+        <p>Contact us: <a href="mailto:Germarkcontact@gmail.com">Germarkcontact@gmail.com</a></p>
+      </section>
+
+      <!-- Passport Tab -->
+      <section id="passport" class="tab-content" style="display: none;">
+        <h3>Passport Access</h3>
+        <input type="password" id="passport-password" placeholder="Enter Passport Password" />
+        <button onclick="unlockPassport()">Unlock</button>
+        <div id="passport-content" style="display: none;">
+          <p>Coming soon...</p>
+        </div>
+      </section>
+
+      <!-- News Tab -->
+      <section id="news" class="tab-content" style="display: none;">
+        <h3>Germark News</h3>
+        <p>Join our official Discord server:</p>
+        <a href="https://discord.gg/huKPsG5V" target="_blank">https://discord.gg/huKPsG5V</a>
+        <img src="assets/qr-dicord.png" alt="Discord QR Code" class="qr-code" />
+        <h4>Articles</h4>
+        <article>
+          <h5>Welcome to Germark</h5>
+          <p>Citizens can now register, explore apartments, and stay informed through this portal.</p>
+        </article>
+      </section>
+
+      <!-- Profile Tab -->
+      <section id="profile" class="tab-content" style="display: none;">
+        <h3>Your Profile</h3>
+        <p>Name: <span id="profile-name"></span></p>
+        <input type="file" id="profile-image" accept="image/*" onchange="saveProfileImage()" />
+        <img id="saved-image" src="" alt="Profile Image" />
+      </section>
+
+      <!-- Citizens Tab -->
+      <section id="citizens" class="tab-content" style="display: none;">
+        <h3>Admin Panel</h3>
+        <input type="password" id="admin-password" placeholder="Enter Admin Password" />
+        <button onclick="unlockAdmin()">Unlock</button>
+        <div id="admin-panel" style="display: none;">
+          <h4>Manage Citizens</h4>
+          <input type="text" id="new-citizen" placeholder="Add Citizen Name" />
+          <button onclick="addCitizen()">Add Citizen</button>
+          <ul id="citizen-list"></ul>
+
+          <h4>Manage News</h4>
+          <input type="text" id="news-entry" placeholder="Add News Article" />
+          <button onclick="addNews()">Add News</button>
+        </div>
+      </section>
+
+      <!-- Apartment Tab -->
+      <section id="apartment" class="tab-content" style="display: none;">
+        <h3>Your Apartment</h3>
+        <p id="apartment-info">Assigned apartment will appear here.</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
